@@ -22,6 +22,12 @@ $('#tableCoffeeOrder :checkbox').prop('checked', false);
 
 $('#coffee').click(function () {
     if ($('#coffee').is(':checked')) {
+
+        $('#tableCoffeeOrder :checkbox').prop('checked', false);
+        $('#tableCoffeeOrder .waterHotColumn').addClass('hideColumn');
+        $('#tableCoffeeOrder .waterColdColumn').addClass('hideColumn');
+        $('#coffee').prop('checked', true);
+
         $('.coffeeMilkColumn').removeClass('hideColumn');
         $('.coffeeSugarColumn').removeClass('hideColumn');
     } else {
@@ -32,6 +38,14 @@ $('#coffee').click(function () {
 
 $('#choco').click(function () {
     if ($('#choco').is(':checked')) {
+
+        $('#tableCoffeeOrder :checkbox').prop('checked', false);
+        $('#tableCoffeeOrder .coffeeMilkColumn').addClass('hideColumn');
+        $('#tableCoffeeOrder .coffeeSugarColumn').addClass('hideColumn');
+        $('#tableCoffeeOrder .waterHotColumn').addClass('hideColumn');
+        $('#tableCoffeeOrder .waterColdColumn').addClass('hideColumn');
+        $('#choco').prop('checked', true);
+
         $('.chocoColumn').removeClass('hideColumn');
     } else {
         $('.chocoColumn').addClass('hideColumn');
@@ -40,6 +54,12 @@ $('#choco').click(function () {
 
 $('#water').click(function () {
     if ($('#water').is(':checked')) {
+
+        $('#tableCoffeeOrder :checkbox').prop('checked', false);
+        $('#tableCoffeeOrder .coffeeMilkColumn').addClass('hideColumn');
+        $('#tableCoffeeOrder .coffeeSugarColumn').addClass('hideColumn');
+        $('#water').prop('checked', true);
+
         $('.waterHotColumn').removeClass('hideColumn');
         $('.waterColdColumn').removeClass('hideColumn');
     } else {
