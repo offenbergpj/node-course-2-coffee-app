@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Login | CoffeeApp</title>
+        <meta name="viewport" content"width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+
+    <body>
+        <div class="centered-form">
+            <div class="centered-loginform__form">
+                <form id="login-form">
+                    <div class="form-field">
+                        <h3>Login to Coffee App</h3>
+                    </div>
+                    <div class="form-field">
+                        <label>Display name</label>
+                        <input type="text" name="name" autofocus />
+                    </div>
+                    <div class="form-field">
+                        <label>Coffee Group Name</label>
+                        <input type="text" id="coffeegroup-name" name="group" list="coffeegroupList" required autocomplete="off" />
+                        <datalist id="coffeegroupList"></datalist>
+                    </div>
+                    <div class="form-field">
+                        <button>Start</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="./js/libs/jquery-3.3.1.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home | CoffeeApp</title>
+    <meta name="viewport" content"width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body class="home">
+
+    <div class="chat__sidebar">
+        <h3>People</h3>
+        <div id="users"></div>
+    </div>
+
+    <div class="main-home">
+        <div class="centeredhome-form">
+            <div class="centered-homeform__form">
+                <form action="/home.html">
+                    <div class="form-field">
+                        <h3>Join or Start a new Coffee Round</h3>
+                    </div>
+                    <div id="requestOrder">
+                        <fieldset>
+                            <legend>Choose your order</legend>
+                            <div>
+                                <table id="tableCoffeeOrder" class="tableCoffeeOrder">
+                                    <tr>
+                                        <th>Selection</th>
+                                        <th>Product</th>
+                                        <th class="hideColumn coffeeMilkColumn">Milk</th>
+                                        <th class="hideColumn coffeeSugarColumn">Sugar</th>
+                                        <th class="hideColumn waterHotColumn">Hot</th>
+                                        <th class="hideColumn waterColdColumn">Cold</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="coffee" name="coffee"
+                                                   value="Coffee" />
+                                        </td>
+                                        <td>
+                                            <label for="coffee">Coffee</label>
+                                        </td>
+                                        <td class="hideColumn coffeeMilkColumn">
+                                            <input type="checkbox" id="coffeeMilk" name="coffeeMilk"
+                                                   value="coffeeMilk" />
+                                        </td>
+                                        <td class="hideColumn coffeeSugarColumn">
+                                            <input type="checkbox" id="coffeeSugar" name="coffeeSugar"
+                                                   value="coffeeSugar" />
+                                        </td>
+                                        <td class="hideColumn waterHotColumn"></td>
+                                        <td class="hideColumn waterColdColumn"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="choco" name="choco"
+                                                   value="Choco" />
+                                        </td>
+                                        <td>
+                                            <label for="choco">Choco</label>
+                                        </td>
+                                        <td class="hideColumn coffeeMilkColumn"></td>
+                                        <td class="hideColumn coffeeSugarColumn"></td>
+                                        <td class="hideColumn waterHotColumn"></td>
+                                        <td class="hideColumn waterColdColumn"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="water" name="water"
+                                                   value="Water" />
+                                        </td>
+                                        <td>
+                                            <label for="water">Water</label>
+                                        </td>
+                                        <td class="hideColumn coffeeMilkColumn"></td>
+                                        <td class="hideColumn coffeeSugarColumn"></td>
+                                        <td class="hideColumn waterHotColumn">
+                                            <input type="checkbox" id="waterHot" name="hot"
+                                                   value="Hot" />
+                                        </td>
+                                        <td class="hideColumn waterColdColumn">
+                                            <input type="checkbox" id="waterCold" name="cold"
+                                                   value="Cold" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                    <div id="showOrders" class="hideOrders">
+                        <fieldset>
+                            <legend>Current Orders</legend>
+                            <div id="order-list-head"></div>         
+                            <div>
+                                <table id="tableCoffeeOrderList" class="tableCoffeeOrder">
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Product</th>
+                                        <th>Extras</th>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            </fieldset>
+                    </div>
+
+                    <div class="form-field">
+                        <div class="flex">
+                            <button id="checkRound">Check Round</button>
+                            <button disabled id="startRound">Start Round</button>
+                            <button disabled id="joinRound">Join Round</button>
+                            <button disabled id="stopRound">Stop Round</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="chat">
+            <div class="chat__main">
+                <div>
+                    <ol id="messages" class="chat__messages"></ol>
+                </div>
+                <div>
+                    <div class="chat__footer">
+                        <form id="message-form">
+                            <input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
+                            <button>Send</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <script id="orderlist-template" type="text/template">
+                <div id="order-title"><h4>Coffeeround startedby: {{startedBy}}</h4></div>
+                <div id="order-time">
+                    <div class="order-time1">
+                        <span>From: {{startedAt}}</span>
+                    </div>
+                    <span> - </span>
+                    <div class="order-time2">
+                        <span>Until: {{endedAt}}</span>
+                    </div>
+                </div>
+            </script>
+
+            <script id="message-template" type="text/template">
+                <li class="message">
+                    <div class="message__title">
+                        <h4>{{from}}</h4>
+                        <span>{{createdAt}}</span>
+                    </div>
+                    <div class="message__body">
+                        <p>{{text}}</p>
+                    </div>
+                </li>
+            </script>
+
+            <script id="location-message-template" type="text/template">
+                <li class="message">
+                    <div class="message__title">
+                        <h4>{{from}}</h4>
+                        <span>{{createdAt}}</span>
+                    </div>
+                    <div class="message__body">
+                        <p>
+                            <a href="{{url}}" target="_blank">My current location</a>
+                        </p>
+                    </div>
+                </li>
+            </script>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script src="/js/libs/moment.js"></script>
+    <script src="/js/libs/mustache.js"></script>
+    <script src="/js/libs/deparam.js"></script>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>
